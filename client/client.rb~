@@ -40,37 +40,6 @@ Shoes.app :height => 730, :width => 1296 do
     image b
   end
   @uni_image = image "static/unicorn.gif", :top=> 324, :left => 1188
-  @nar_image = image "static/narhwal.gif", :top => 200, :left => 900
-  @nar_top = 200
-  @nar_left = 900
-  def mover_nar_around
-  	  variable = 1 + rand(4)
-  	if variable == 1
-  		if @board[(@nar_top + (@nar_left/36)) - 36]=="static/sand_1.gif"
-  	  	  @nar_top -= 36
-  	  	  @nar_image.style :top => @nar_top
-  	  	end
-  	end
-  	if variable == 2
-  		if @board[(@nar_top + (@nar_left/36)) + 36]=="static/sand_1.gif"
-  			@nar_top += 36
-  			@nar_image.style :top => @nar_top
-  		end
-  	end
-  	if variable == 3
-  		if @board[(@nar_top + (@nar_left/36)) + 1]=="static/sand_1.gif"
-  			@nar_left += 36
-  			@nar_image.style :left => @nar_left
-  		end
-  	end
-  	if variable == 4
-  		if @board[(@nar_top + (@nar_left/36)) - 1]=="static/sand_1.gif"
-  			@nar_left -= 36
-  			@nar_image.style :left => @nar_left
-  		end
-  	end
-  		
-  end
   @player_top = 360
   @player_left = 0
   @player_image = image "static/Warrior.gif", :top => 360, :left => 0
@@ -114,10 +83,10 @@ Shoes.app :height => 730, :width => 1296 do
 #  def get_input
     keypress do |k|
       case k
-      when 'w' then move_player_up and mover_nar_around
-      when 'a' then move_player_left and mover_nar_around
-      when 's' then move_player_down and mover_nar_around
-      when 'd' then move_player_right and mover_nar_around
+        when 'w' then move_player_up
+        when 'a' then move_player_left
+        when 's' then move_player_down
+        when 'd' then move_player_right
 	else ''
       end
      
