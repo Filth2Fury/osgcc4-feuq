@@ -40,9 +40,9 @@ Shoes.app :height => 730, :width => 1296 do
     image b
   end
   @uni_image = image "static/unicorn.gif", :top=> 324, :left => 1188
-  @nar_image = image "static/narhwal.gif", :top => 200, :left => 900
-  @nar_top = 200
-  @nar_left = 900
+  @nar_image = image "static/narhwal.gif", :top =>360 , :left =>720
+  @nar_top = 360
+  @nar_left = 720
   def mover_nar_around
   	  variable = 1 + rand(4)
   	if variable == 1
@@ -119,6 +119,9 @@ Shoes.app :height => 730, :width => 1296 do
       when 's' then move_player_down and mover_nar_around
       when 'd' then move_player_right and mover_nar_around
 	else ''
+      end
+      if @nar_top == @player_top and @nar_left == @player_left
+      	      alert "hello"
       end
      
 
